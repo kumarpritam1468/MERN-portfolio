@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  /* background: #012622; */
+  color-scheme: light dark;
+}
+
+:root {
+  --bg-color: #f4f3ff;
+  --btn-color: #646cff;
+  --dark-color: #242424;
+  --helper-color: #99b9ff;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+.colorText {
+  color: var(--btn-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--btn-color);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
