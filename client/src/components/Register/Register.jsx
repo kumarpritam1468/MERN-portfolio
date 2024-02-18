@@ -76,9 +76,9 @@ const Register = () => {
                             />
                         </div>
                         <br />
-                        <button type="submit" className="btn btn-submit">
+                        <div type="submit" className="btn1">
                             Register Now
-                        </button>
+                        </div>
                     </form>
                 </div>
             </div >

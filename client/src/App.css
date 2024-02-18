@@ -28,3 +28,32 @@ a {
   font-weight: 500;
   font-size: 1.1rem;
 }
+
+.btn1{
+  background: var(--btn-color);
+  border-radius: .5rem;
+  padding: .4rem 0;
+  width: 10rem;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all .3s ease-in-out;
+  color: white;
+}
+
+.btn2{
+  border-radius: .5rem;
+  padding: .4rem 0;
+  width: 10rem;
+  text-align: center;
+  border: 2px solid var(--btn-color);
+  transition: all .3s ease-in-out;
+  color: white;
+}
+
+.btn1:hover,
+.btn2:hover{
+  cursor: pointer;
+  box-shadow: 0 0 2rem var(--btn-color);
+  border: 2px solid white;
+  scale: 1.01;
+}

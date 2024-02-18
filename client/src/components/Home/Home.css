@@ -1,0 +1,25 @@
+.hero {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    padding: 1rem 5rem;
+    gap: 4rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right img {
+    width: 25rem;
+    margin-bottom: 3rem;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1.5rem;
+}
