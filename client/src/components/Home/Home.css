@@ -8,6 +8,19 @@
     justify-content: space-between;
 }
 
+.heroEnd{
+    height: 80vh;
+    flex-direction: row-reverse;
+}
+
+.footer{
+    height: 10vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .right img {
     width: 25rem;
     margin-bottom: 3rem;
