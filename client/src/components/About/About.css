@@ -1,0 +1,13 @@
+.about {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    padding: 1rem 5rem;
+    gap: 4rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left {
+    gap: 1.8rem;
+}

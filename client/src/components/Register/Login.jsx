@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 // It uses same css as register page so it has same names
-import './Register.css';
+import './Form.css';
 
 const Login = () => {
 
     const [user, setUser] = useState({
-        email:"",
-        password:""
+        email: "",
+        password: ""
     });
 
     const handleInput = (e) => {
@@ -16,24 +16,24 @@ const Login = () => {
 
         setUser({
             ...user,
-            [name]:value
+            [name]: value
         })
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
     }
 
-  return (
-    <>
-        <div className="register">
+    return (
+        <>
+            <div className="formContainer">
                 <div className="image">
                     <img src="./images/login.png" alt="" />
                 </div>
 
-                <div className="registerForm">
-                    <h1 className="main-heading mb-3">Login form</h1>
+                <div className="form">
+                    <h1 className="main-heading">Login form</h1>
                     <br />
                     <form onSubmit={handleSubmit} >
                         <div>
@@ -41,7 +41,6 @@ const Login = () => {
                             <input
                                 type="text"
                                 name="email"
-                                placeholder="email"
                                 value={user.email}
                                 onChange={handleInput}
                             />
@@ -51,20 +50,18 @@ const Login = () => {
                             <input
                                 type="password"
                                 name="password"
-                                placeholder="password"
                                 value={user.password}
                                 onChange={handleInput}
                             />
                         </div>
-                        <br />
                         <div type="submit" className="btn1">
                             Login
                         </div>
                     </form>
                 </div>
             </div >
-    </>
-  )
+        </>
+    )
 }
 
 export default Login
