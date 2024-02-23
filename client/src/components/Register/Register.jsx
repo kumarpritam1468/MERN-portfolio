@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import {useNavigate} from "react-router-dom";
 import './Form.css';
 
 const Register = () => {
+
+    const navigate = useNavigate();
 
     const [user, setUser] = useState({
         name:"",
@@ -20,10 +23,32 @@ const Register = () => {
         })
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        
-    }
+        try {
+            const response = await fetch(`http://localhost:5000/api/auth/register`, {
+                method:'POST',
+                headers :{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify(user)
+            });
+            console.log(response);
+
+            if(response.ok){
+                setUser({
+                    name:"",
+                    email:"",
+                    phone:"",
+                    password:""
+                });
+                navigate("/login");
+            }
+
+        } catch (error) {
+            console.log("Register", error);
+        }
+    };
 
     return (
         <>
@@ -72,9 +97,9 @@ const Register = () => {
                                 onChange={handleInput}
                             />
                         </div>
-                        <div type="submit" className="btn1">
+                        <button type="submit" className="btn1">
                             Register Now
-                        </div>
+                        </button>
                     </form>
                 </div>
             </div >
