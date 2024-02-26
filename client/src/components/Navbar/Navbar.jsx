@@ -13,8 +13,8 @@ const Navbar = () => {
                     <NavLink to="/about">About</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
                     <NavLink to="/services">Services</NavLink>
-                    <NavLink to="/login">SignIn</NavLink>
-                    <NavLink to="/register">SignUp</NavLink>
+                    <NavLink to="/login">Log In</NavLink>
+                    <NavLink to="/register">Register</NavLink>
                 </div>
             </div>
         </>
