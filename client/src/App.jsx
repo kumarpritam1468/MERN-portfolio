@@ -11,6 +11,7 @@ import Register from './components/Register/Register';
 import Login from './components/Register/Login';
 import Contact from './components/Contact/Contact';
 import Error from './components/Error/Error';
+import {Logout} from './components/Logout/Logout';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/contact" element={ <Contact/> } />
           <Route exact path="/register" element={ <Register/> } />
           <Route exact path="/login" element={ <Login/> } />
+          <Route exact path="/logout" element={ <Logout/> } />
           <Route exact path="*" element={ <Error/> }/>
 
         </Routes>

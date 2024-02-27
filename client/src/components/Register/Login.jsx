@@ -44,6 +44,7 @@ const Login = () => {
                 })
                 alert("Login Successful");
                 navigate("/");
+                window.location.reload(false);
             }
             else{
                 alert("Invalid credentials");
