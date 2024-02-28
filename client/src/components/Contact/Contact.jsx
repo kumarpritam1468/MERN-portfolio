@@ -1,14 +1,29 @@
 import React, { useState } from 'react';
+import { useAuth } from '../../store/auth';
 
 // It uses the same css as Login and Register Page
 
 const Contact = () => {
 
-    const [user, setUser] = useState({
+    const [contact, setContact] = useState({
         name: "",
         email: "",
         message: ""
     });
+
+    const [userData, setUserData] = useState(true);
+
+    const {user} = useAuth();
+
+    if(user && userData){
+        setContact({
+            name: user.name,
+            email: user.email,
+            message: ""
+        });
+
+        setUserData(false);
+    }
 
     const handleChange = (e) => {
         const name = e.target.name;
@@ -41,7 +56,7 @@ const Contact = () => {
                             <input
                                 type="text"
                                 name="name"
-                                value={user.name}
+                                value={contact.name}
                                 onChange={handleChange}
                             />
                         </div>
@@ -50,7 +65,7 @@ const Contact = () => {
                             <input
                                 type="text"
                                 name="email"
-                                value={user.email}
+                                value={contact.email}
                                 onChange={handleChange}
                             />
                         </div>
@@ -61,7 +76,7 @@ const Contact = () => {
                                 name="message"
                                 cols="50"
                                 rows="7"
-                                value={user.message}
+                                value={contact.message}
                                 onChange={handleChange}
                             />
                         </div>
