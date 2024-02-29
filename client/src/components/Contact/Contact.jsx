@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../store/auth';
+import { useNavigate } from 'react-router-dom';
 
 // It uses the same css as Login and Register Page
 
 const Contact = () => {
+    const navigate = useNavigate();
 
     const [contact, setContact] = useState({
         name: "",
@@ -13,13 +15,13 @@ const Contact = () => {
 
     const [userData, setUserData] = useState(true);
 
-    const {user} = useAuth();
+    const { user } = useAuth();
 
-    if(user && userData){
+    if (user && userData) {
         setContact({
             name: user.name,
             email: user.email,
-            message: ""
+            message: " "
         });
 
         setUserData(false);
@@ -29,15 +31,33 @@ const Contact = () => {
         const name = e.target.name;
         const value = e.target.value;
 
-        setUser({
+        setContact({
             ...user,
-            [name]:value
+            [name]: value
         });
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            const response = await fetch('http://localhost:5000/api/form/contact', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(contact)
+            })
 
+            if (response.ok) {
+                setContact({
+                    message: ""
+                });
+                alert("Message Sent Successfully");
+                navigate("/");
+            }
+        } catch (error) {
+            console.error("Contact form error : ", error);
+        }
     }
 
     return (
@@ -80,9 +100,9 @@ const Contact = () => {
                                 onChange={handleChange}
                             />
                         </div>
-                        <div type="submit" className="btn1">
+                        <button type="submit" className="btn1">
                             Send
-                        </div>
+                        </button>
                     </form>
                 </div>
             </div >

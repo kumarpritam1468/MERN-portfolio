@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './About.css';
+import { useAuth } from '../../store/auth';
 
 const About = () => {
+  const { user} = useAuth();
   return (
     <>
       <div className="about">
         <div className="left">
+          <h3>Welcome, {user ? user.name : `to my website`}</h3>
           <h1>Why Choose <span className="colorText">Pritam ?</span></h1>
           <p>Expertise: Our team consists of experienced IT professionals who are passionate about staying up-to-date with the latest industry trends,</p>
           <p>Customization: We understand that every business is unique. That's why we create solutions that are tailored to your specific needs and goals.</p>
