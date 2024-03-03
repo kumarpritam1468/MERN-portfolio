@@ -14,6 +14,8 @@ import Error from './components/Error/Error';
 import {Logout} from './components/Logout/Logout';
 import Services from './components/Services/Services';
 import AdminUsers from './components/Admin/AdminUsers';
+import AdminMessages from './components/Admin/AdminMessages';
+import AdminServices from './components/Admin/AdminServices';
 
 function App() {
 
@@ -32,6 +34,8 @@ function App() {
           <Route exact path="/logout" element={ <Logout/> } />
           <Route exact path="*" element={ <Error/> }/>
           <Route path="/admin" element={<AdminUsers/>}/>
+          <Route path="/admin/messages" element={<AdminMessages/>}/>
+          <Route path="/admin/services" element={<AdminServices/>}/>
 
         </Routes>
       </Router>
