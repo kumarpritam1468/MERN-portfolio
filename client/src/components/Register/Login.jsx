@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {useAuth} from '../../store/auth'
 // It uses same css as register page so it has same names
 import './Form.css';
+import {toast} from 'react-toastify';
 
 const Login = () => {
 
@@ -42,15 +43,15 @@ const Login = () => {
                     email:"",
                     password:""
                 })
-                alert("Login Successful");
+                toast.success("Login Successful");
                 navigate("/");
-                window.location.reload(false);
+                // window.location.reload(false);
             }
             else{
-                alert("Invalid credentials");
+                toast.error("Invalid credentials");
             }
         } catch (error) {
-            console.log("Login", error);
+            toast.error("Invalid Credentials!");
         }
     }
 

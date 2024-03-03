@@ -5,7 +5,7 @@ const authMiddleware = async (req, res, next) => {
     const token = req.header("Authorization");
 
     if(!token){
-        res.status(401).json({msg:"Unauthorized Access"});
+        return res.status(401).json({msg:"Unauthorized Access"});
     }
 
     const jwtToken = token.replace("Bearer", "").trim();
@@ -13,8 +13,6 @@ const authMiddleware = async (req, res, next) => {
     try {
         const isVerified = jwt.verify(jwtToken, process.env.JWT_KEY);
         const userData = await User.findOne({email: isVerified.email}).select({password:0});
-        
-        console.log(userData);
 
         req.user = userData;
         req.token = token;

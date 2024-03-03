@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
@@ -9,6 +10,7 @@ export const AuthProvider = ({ children }) => {
     const [services, setServices] = useState("");
 
     const storeToken = (serverToken) => {
+        setToken(serverToken);
         return localStorage.setItem('token', serverToken);
     }
 

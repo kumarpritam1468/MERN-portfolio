@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import {useNavigate} from "react-router-dom";
-import {useAuth} from '../../store/auth'
+import {useAuth} from '../../store/auth';
+import {toast} from 'react-toastify';
 import './Form.css';
 
 const Register = () => {
-
+    
     const navigate = useNavigate();
     const {storeToken} = useAuth();
-
+    
     const [user, setUser] = useState({
         name:"",
         email:"",
@@ -18,13 +19,13 @@ const Register = () => {
     const handleInput = (e) => {
         let name = e.target.name;
         let value = e.target.value;
-
+        
         setUser({
             ...user,
             [name]:value
         })
     };
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -35,10 +36,9 @@ const Register = () => {
                 },
                 body:JSON.stringify(user)
             });
-            console.log(response);
-
+            
+            const resData = await response.json();
             if(response.ok){
-                const resData = await response.json();
                 storeToken(resData.token);
                 setUser({
                     name:"",
@@ -46,14 +46,18 @@ const Register = () => {
                     phone:"",
                     password:""
                 });
+                toast.success("Registration Successful");
                 navigate("/login");
             }
-
+            else{
+                toast.error(resData.extraDetails ? resData.extraDetails : resData.message);
+            }
+            
         } catch (error) {
             console.log("Register", error);
         }
     };
-
+    
     return (
         <>
             <div className="formContainer">

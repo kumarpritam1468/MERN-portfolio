@@ -39,7 +39,7 @@ const login = async (req, res) => {
         const userExist = await User.findOne({ email });
 
         if (!userExist) {
-            return res.status(400).json({ msg: "Invalid credentials" });
+            return res.status(400).json({ message: "Invalid credentials" });
         }
 
         const user = await userExist.comparePassword(password);
@@ -52,7 +52,7 @@ const login = async (req, res) => {
             });
         }
         else {
-            return res.status(401).json({ msg: "Invalid credentials" });
+            return res.status(401).json({ message: "Invalid credentials" });
         }
 
     } catch (error) {
@@ -63,7 +63,6 @@ const login = async (req, res) => {
 const user = async (req, res) => {
     try {
         const userData = req.user;
-        console.log(userData);
         return res.status(200).json({ userData });
     } catch (error) {
         console.log("Error from user page : ", error);
