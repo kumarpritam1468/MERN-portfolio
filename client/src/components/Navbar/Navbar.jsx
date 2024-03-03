@@ -1,13 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useAuth } from '../../store/auth';
 import './Navbar.css';
 
 const Navbar = () => {
     const { isLoggedIn } = useAuth();
+    const location = useLocation();
+    console.log(location.pathname);
     return (
         <>
-            <div className="navbar">
+                <div className={`${(location.pathname === '/admin') || (location.pathname === '/admin/messages') || (location.pathname === '/admin/services') ? 'navbar hidden' : 'navbar'}`}>
                 <h2 className='colorText'>Pritam Kumar</h2>
 
                 <div className="pages">

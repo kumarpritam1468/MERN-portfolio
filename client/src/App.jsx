@@ -13,6 +13,7 @@ import Contact from './components/Contact/Contact';
 import Error from './components/Error/Error';
 import {Logout} from './components/Logout/Logout';
 import Services from './components/Services/Services';
+import AdminUsers from './components/Admin/AdminUsers';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/login" element={ <Login/> } />
           <Route exact path="/logout" element={ <Logout/> } />
           <Route exact path="*" element={ <Error/> }/>
+          <Route path="/admin" element={<AdminUsers/>}/>
 
         </Routes>
       </Router>
