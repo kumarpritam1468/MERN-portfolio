@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import AdminLayout from './AdminLayout'
 import { useAuth } from '../../store/auth';
 import { toast } from 'react-toastify';
+import './Admin.css';
 
 const AdminServices = () => {
   const { authorizationToken } = useAuth();
@@ -30,7 +31,7 @@ const AdminServices = () => {
     <>
       <div className="adminPage">
         <AdminLayout />
-        <div className="services">
+        <div className="adminServices">
           <h1 className='main-heading'>Services...   </h1>
 
           <div classNameName="table">

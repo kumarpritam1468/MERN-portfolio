@@ -7,7 +7,6 @@ import './Form.css';
 const Register = () => {
     
     const navigate = useNavigate();
-    const {storeToken} = useAuth();
     
     const [user, setUser] = useState({
         name:"",
@@ -39,7 +38,6 @@ const Register = () => {
             
             const resData = await response.json();
             if(response.ok){
-                storeToken(resData.token);
                 setUser({
                     name:"",
                     email:"",
