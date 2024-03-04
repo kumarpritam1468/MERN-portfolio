@@ -6,7 +6,6 @@ import './Navbar.css';
 const Navbar = () => {
     const { isLoggedIn } = useAuth();
     const location = useLocation();
-    console.log(location.pathname);
     return (
         <>
                 <div className={`${(location.pathname === '/admin') || (location.pathname === '/admin/messages') || (location.pathname === '/admin/services') ? 'navbar hidden' : 'navbar'}`}>

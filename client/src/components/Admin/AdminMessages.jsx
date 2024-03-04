@@ -1,7 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AdminLayout from './AdminLayout'
+import { toast } from 'react-toastify';
+import { useAuth } from '../../store/auth';
 
 const AdminMessages = () => {
+  const { authorizationToken } = useAuth();
+  const [messages, setMessages] = useState([]);
+
+  const allMessages = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/admin/contacts', {
+        method: "GET",
+        headers: {
+          Authorization: authorizationToken
+        }
+      })
+
+      const data = await response.json();
+      setMessages(data);
+    } catch (error) {
+      toast.error(error);
+    }
+  }
+
+  useEffect(() => {
+    allMessages();
+  }, []);
   return (
     <>
       <div className="adminPage">
@@ -17,12 +41,16 @@ const AdminMessages = () => {
               <div className="header__item"><h4 className="filter__link" >Delete</h4></div>
             </div>
             <div className="table-content">
-              <div className="table-row">
-                <div className="table-data"><h3>Pritam</h3></div>
-                <div className="table-data"><h3>test@mail.com</h3></div>
-                <div className="table-data"><h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam sint blanditiis commodi pariatur error accusantium eius saepe harum repellat quis!</h3></div>
-                <div className="table-data"><h3 className='btn1'>Delete</h3></div>
-              </div>
+              {messages.map((user, index) => {
+                return (
+                  <div className="table-row" key={index}>
+                    <div className="table-data"><h3>{user.name}</h3></div>
+                    <div className="table-data"><h3>{user.email}</h3></div>
+                    <div className="table-data"><h3>{user.message}</h3></div>
+                    <div className="table-data"><h3 className='btn1'>Delete</h3></div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>

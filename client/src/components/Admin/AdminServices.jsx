@@ -1,7 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AdminLayout from './AdminLayout'
+import { useAuth } from '../../store/auth';
+import { toast } from 'react-toastify';
 
 const AdminServices = () => {
+  const { authorizationToken } = useAuth();
+  const [services, setServices] = useState([]);
+
+  const allServices = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/admin/services', {
+        method: "GET",
+        headers: {
+          Authorization: authorizationToken
+        }
+      })
+
+      const data = await response.json();
+      setServices(data);
+    } catch (error) {
+      toast.error(error);
+    }
+  }
+
+  useEffect(() => {
+    allServices();
+  }, []);
   return (
     <>
       <div className="adminPage">
@@ -18,13 +42,17 @@ const AdminServices = () => {
               <div className="header__item"><h4 className="filter__link" >Delete</h4></div>
             </div>
             <div className="table-content">
-              <div className="table-row">
-                <div className="table-data"><h3>Pritam</h3></div>
-                <div className="table-data"><h3>test@mail.com</h3></div>
-                <div className="table-data"><h3>1122334455</h3></div>
-                <div className="table-data"><h3 className='btn3'>Edit</h3></div>
-                <div className="table-data"><h3 className='btn1'>Delete</h3></div>
-              </div>
+              {services.map((service, index) => {
+                return (
+                  <div className="table-row">
+                    <div className="table-data"><h3>{service.service}</h3></div>
+                    <div className="table-data"><h3>{service.description}</h3></div>
+                    <div className="table-data"><h3>{service.price}</h3></div>
+                    <div className="table-data"><h3 className='btn3'>Edit</h3></div>
+                    <div className="table-data"><h3 className='btn1'>Delete</h3></div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
