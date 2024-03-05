@@ -16,6 +16,7 @@ import Services from './components/Services/Services';
 import AdminUsers from './components/Admin/AdminUsers';
 import AdminMessages from './components/Admin/AdminMessages';
 import AdminServices from './components/Admin/AdminServices';
+import AdminEdit from './components/Admin/AdminEdit';
 
 function App() {
 
@@ -33,9 +34,10 @@ function App() {
           <Route exact path="/login" element={ <Login/> } />
           <Route exact path="/logout" element={ <Logout/> } />
           <Route exact path="*" element={ <Error/> }/>
-          <Route path="/admin" element={<AdminUsers/>}/>
-          <Route path="/admin/messages" element={<AdminMessages/>}/>
-          <Route path="/admin/services" element={<AdminServices/>}/>
+          <Route exact path="/admin" element={<AdminUsers/>}/>
+          <Route exact path="/admin/messages" element={<AdminMessages/>}/>
+          <Route exact path="/admin/services" element={<AdminServices/>}/>
+          <Route exact path="/admin/users/:id/edit" element={<AdminEdit/>}/>
 
         </Routes>
       </Router>

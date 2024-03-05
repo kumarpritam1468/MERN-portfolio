@@ -6,9 +6,11 @@ import './Navbar.css';
 const Navbar = () => {
     const { isLoggedIn } = useAuth();
     const location = useLocation();
+
+    const isAdminPath = location.pathname.startsWith('/admin');
     return (
         <>
-                <div className={`${(location.pathname === '/admin') || (location.pathname === '/admin/messages') || (location.pathname === '/admin/services') ? 'navbar hidden' : 'navbar'}`}>
+                <div className={`${(!isAdminPath) ? 'navbar' : 'navbar hidden'}`}>
                 <h2 className='colorText'>Pritam Kumar</h2>
 
                 <div className="pages">

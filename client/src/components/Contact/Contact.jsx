@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../store/auth';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 // It uses the same css as Login and Register Page
 
@@ -52,7 +53,7 @@ const Contact = () => {
                 setContact({
                     message: ""
                 });
-                alert("Message Sent Successfully");
+                toast.success("Message Sent Successfully");
                 navigate("/");
             }
         } catch (error) {

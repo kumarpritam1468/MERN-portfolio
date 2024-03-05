@@ -4,7 +4,7 @@ import './About.css';
 import { useAuth } from '../../store/auth';
 
 const About = () => {
-  const { user} = useAuth();
+  const { user } = useAuth();
   return (
     <>
       <div className="about">

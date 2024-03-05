@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AdminLayout from './AdminLayout';
 import { useAuth } from '../../store/auth';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 import './Admin.css';
 
 const AdminUsers = () => {
@@ -63,7 +64,7 @@ const AdminUsers = () => {
                     <div className="table-data"><h3>{user.name}</h3></div>
                     <div className="table-data"><h3>{user.email}</h3></div>
                     <div className="table-data"><h3>{user.phone}</h3></div>
-                    <div className="table-data"><h3 className='btn3'>Edit</h3></div>
+                    <Link className="table-data" to={`/admin/users/${user._id}/edit`}><h3 className='btn3'>Edit</h3></Link>
                     <div className="table-data"><h3 className='btn1' onClick={() => deleteUser(user._id)}>Delete</h3></div>
                   </div>
                 )

@@ -6,7 +6,6 @@
     justify-content: center;
     gap: 2rem;
     border-bottom: 2px solid var(--btn-color);
-    box-shadow: 0 0 1.5rem var(--btn-color);
 }
 
 .adminNav .btn1 {
@@ -39,7 +38,13 @@
     gap: 2rem;
 }
 
+.table a{
+    border: none;
+}
 
+.table a:hover{
+    border: none;
+}
 
 
 /* Tablee */

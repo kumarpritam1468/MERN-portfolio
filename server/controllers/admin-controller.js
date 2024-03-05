@@ -48,4 +48,27 @@ const deleteUserById = async (req, res, next) => {
     }
 }
 
-module.exports = { allUsers, allContacts, allServices, deleteUserById };
+const getUserById = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const data = await User.findOne({ _id: id }, {password: 0});
+        res.status(200).json(data);
+    } catch (error) {
+        next(error);
+    }
+}
+
+const updateUserById = async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const updatedData = req.body;
+
+        const updateUser = await User.updateOne({_id: id}, {$set : updatedData});
+
+        res.status(200).json(updateUser);
+    } catch (error) {
+        next(error);
+    }
+}
+
+module.exports = { allUsers, allContacts, allServices, deleteUserById, getUserById, updateUserById };
