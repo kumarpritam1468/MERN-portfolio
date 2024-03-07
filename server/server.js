@@ -11,7 +11,7 @@ const connectDB = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
 
 var corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'http://pritam-mern.pages.dev',
     methods: "GET, POST, HEAD, PUT, DELETE, PATCH",
     credentials: true
 }
