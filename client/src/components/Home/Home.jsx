@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { TypeAnimation } from 'react-type-animation';
 import './Home.css';
 
 const Home = () => {
@@ -8,7 +9,23 @@ const Home = () => {
       <div className="hero">
         <div className="left">
           <h1>Welcome from <span className="colorText">Pritam</span></h1>
-          <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate soluta consequatur sint corporis eos dolorem fugit aut ipsa quam neque.</h3>
+          <h1>
+            Get Yours now, I make 
+            <TypeAnimation
+              sequence={[
+                ' Full Stack Website',
+                1000, 
+                ' Front End ',
+                1000,
+                ' MERN Stack App',
+                1000
+              ]}
+              speed={50}
+              repeat={Infinity}
+              className='colorText'
+            />
+          </h1>
+          <p>Dedicated MERN stack developer adept at creating robust web applications. Skilled in MongoDB, Express, React, Node.js, and proficient in Tailwind CSS for modern, responsive design. Committed to delivering exceptional user experiences</p>
           <div className="buttons">
             <Link className="btn1" to="/contact" >
               Contact Now
@@ -28,7 +45,7 @@ const Home = () => {
       <div className="hero heroEnd">
         <div className="left">
           <h1>Get Started with <span className="colorText">Pritam</span></h1>
-          <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate soluta consequatur sint corporis eos dolorem fugit aut ipsa quam neque.</h3>
+          <p>Dedicated MERN stack developer adept at creating robust web applications. Skilled in MongoDB, Express, React, Node.js, and proficient in Tailwind CSS for modern, responsive design. Committed to delivering exceptional user experiences, Get your work done quickly!</p>
           <div className="buttons">
             <Link className="btn1" to="/contact" >
               Contact Now

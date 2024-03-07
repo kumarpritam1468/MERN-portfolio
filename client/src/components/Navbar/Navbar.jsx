@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAuth } from '../../store/auth';
+import { MdClose } from "react-icons/md";
+import { RiMenu4Line } from "react-icons/ri";
 import './Navbar.css';
 
 const Navbar = () => {
-    const { isLoggedIn, user} = useAuth();
+    const { isLoggedIn, user } = useAuth();
     const location = useLocation();
+    const [clicked, setClicked] = useState(false);
 
     const isAdminPath = location.pathname.startsWith('/admin');
     return (
         <>
-                <div className={`${(!isAdminPath) ? 'navbar' : 'navbar hidden'}`}>
-                <h2 className='colorText'>Pritam Kumar</h2>
+            <div className={`${(!isAdminPath) ? 'navbar' : 'navbar hidden'}`}>
+                <div className="logo">
+                    <img src="./images/logomy.png" alt="" />
+                    <h2 className='colorText'>Pritam Kumar</h2>
+                </div>
 
-                <div className="pages">
+                <div className={clicked ? 'pages pagesActive' : 'pages'} onClick={() => setClicked(!clicked)}>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/about">About</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
@@ -29,6 +35,10 @@ const Navbar = () => {
                     }
 
 
+                </div>
+
+                <div className="icon" onClick={() => setClicked(!clicked)}>
+                    {clicked ? <MdClose /> : <RiMenu4Line />}
                 </div>
             </div>
         </>

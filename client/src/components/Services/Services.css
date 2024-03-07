@@ -1,4 +1,4 @@
-.servicesPage{
+.servicesPage {
     min-height: 85vh;
     display: flex;
     flex-direction: column;
@@ -7,13 +7,13 @@
     padding: 0rem 3rem;
 }
 
-.services{
+.services {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
 }
 
-.servicesBox{
+.servicesBox {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -25,11 +25,43 @@
     transition: all .3s ease-in-out;
 }
 
-.servicesBox:hover{
+.servicesBox:hover {
     border: 2px solid white;
     box-shadow: 0 0 2rem var(--btn-color);
 }
 
-.servicesBox img{
+.servicesBox img {
     width: 70%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .servicesBox{
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .services {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .servicesBox{
+        width: 85vw;
+        align-items: center;
+        text-align: center;
+    }
+
+    .servicesBox img{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .right img {
+        width: 16rem;
+    }
 }

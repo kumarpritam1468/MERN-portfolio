@@ -36,3 +36,34 @@
     display: flex;
     gap: 1.5rem;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .hero{
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .hero{
+        flex-direction: column-reverse;
+        justify-content: center;
+        padding: 0 4rem 5rem 4rem;
+        gap: 2rem;
+    }
+
+    .left{
+        align-items: center;
+        text-align: center;
+    }
+
+    .right img{
+        width: 22rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .right img{
+        width: 16rem;
+    }
+}
