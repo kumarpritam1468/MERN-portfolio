@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import AdminLayout from './AdminLayout';
 import { useAuth } from '../../store/auth';
 import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Admin.css';
 
 const AdminUsers = () => {
-  const { authorizationToken } = useAuth();
+  const { authorizationToken, user, isLoading } = useAuth();
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
   const allUsers = async () => {
     try {
@@ -37,6 +38,17 @@ const AdminUsers = () => {
       console.error(error);
     }
   }
+
+  // if (isLoading) {
+  //   return <div className="errorBox">
+  //       <h2>Loading...</h2>
+  //     </div>
+  // }
+
+  // if(!(user.isAdmin)){
+  //   navigate('/');
+  //   console.log(dsgvsdhgacsd);
+  // }
 
   useEffect(() => {
     allUsers();

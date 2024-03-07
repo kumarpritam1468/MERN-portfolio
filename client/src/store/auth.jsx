@@ -8,39 +8,45 @@ export const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(localStorage.getItem('token'));
     const [user, setUser] = useState("");
     const [services, setServices] = useState("");
-    const authorizationToken = `Bearer ${token}`;
-
+    const [isLoading, setIsLoading] = useState(true);
+    
     const storeToken = (serverToken) => {
         setToken(serverToken);
         return localStorage.setItem('token', serverToken);
     }
-
+    
     let isLoggedIn = !!token;
-
+    
+    const authorizationToken = `Bearer ${token}`;
     const LogoutUser = () => {
         setToken('');
-        setUser('');
         window.location.reload(false);
         return localStorage.removeItem('token');
     }
-
+    
     // jwt authentication
-
+    
     const userAuthentication = async () => {
         try {
             const response = await fetch('http://localhost:5000/api/auth/user', {
-                method : "GET",
-                headers : {
+                method: "GET",
+                headers: {
                     Authorization: authorizationToken
                 }
             });
 
-            if(response.ok){
+            if (response.ok) {
                 const data = await response.json();
                 setUser(data.userData);
+                // setIsLoading(false);
+            }
+            else {
+                console.error("Error fetching user data");
+                // setIsLoading(false);
             }
         } catch (error) {
-            console.error("Error fetching userData");
+            // setIsLoading(false);
+            console.error(error);
         }
     }
 
@@ -49,10 +55,10 @@ export const AuthProvider = ({ children }) => {
     const getServices = async () => {
         try {
             const response = await fetch('http://localhost:5000/api/data/services', {
-                method:"GET"
+                method: "GET"
             })
 
-            if(response.ok){
+            if (response.ok) {
                 const data = await response.json();
                 setServices(data);
                 console.log(services);
@@ -65,7 +71,7 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         userAuthentication();
         getServices();
-    }, []);
+    }, [token]);
 
     return (
         <AuthContext.Provider value={{ isLoggedIn, storeToken, LogoutUser, user, services, authorizationToken }}>

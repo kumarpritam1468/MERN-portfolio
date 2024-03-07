@@ -45,7 +45,6 @@ const Login = () => {
                 })
                 toast.success("Login Successful");
                 navigate("/");
-                // window.location.reload(false);
             }
             else{
                 toast.error("Invalid credentials");

@@ -4,7 +4,7 @@ import { useAuth } from '../../store/auth';
 import './Navbar.css';
 
 const Navbar = () => {
-    const { isLoggedIn } = useAuth();
+    const { isLoggedIn, user} = useAuth();
     const location = useLocation();
 
     const isAdminPath = location.pathname.startsWith('/admin');
@@ -17,7 +17,7 @@ const Navbar = () => {
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/about">About</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
-                    <NavLink to="/admin">Admin</NavLink>
+                    {user.isAdmin ? (<NavLink to="/admin">Admin</NavLink>) : (<></>)}
                     <NavLink to="/services">Services</NavLink>
 
                     {isLoggedIn ?
