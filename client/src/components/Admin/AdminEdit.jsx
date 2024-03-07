@@ -16,7 +16,7 @@ const AdminEdit = () => {
 
     const getSingleUser = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/admin/users/${params.id}/get`, {
+            const response = await fetch(`https://pritam-mern.onrender.com/api/admin/users/${params.id}/get`, {
                 method:"GET",
                 headers:{
                     Authorization:authorizationToken
@@ -43,7 +43,7 @@ const AdminEdit = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:5000/api/admin/users/update/${params.id}`, {
+            const response = await fetch(`https://pritam-mern.onrender.com/api/admin/users/update/${params.id}`, {
                 method:"PATCH",
                 headers:{
                     "Content-Type":"application/json",

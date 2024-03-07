@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
     
     const userAuthentication = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/auth/user', {
+            const response = await fetch('https://pritam-mern.onrender.com/api/auth/user', {
                 method: "GET",
                 headers: {
                     Authorization: authorizationToken
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
 
     const getServices = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/data/services', {
+            const response = await fetch('https://pritam-mern.onrender.com/api/data/services', {
                 method: "GET"
             })
 
