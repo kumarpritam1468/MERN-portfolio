@@ -11,7 +11,7 @@ const connectDB = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
 
 var corsOptions = {
-    origin: 'http://pritam-mern.pages.dev',
+    origin: 'https://pritam-kumar-portfolio.vercel.app',
     methods: "GET, POST, HEAD, PUT, DELETE, PATCH",
     credentials: true
 }
