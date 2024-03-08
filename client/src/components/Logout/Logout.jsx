@@ -10,5 +10,5 @@ export const Logout = () => {
         LogoutUser();
     }, [LogoutUser]);
 
-    return <Navigate to="/login" />
+    return <Navigate to="/" />
 }
