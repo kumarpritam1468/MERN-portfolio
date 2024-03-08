@@ -3,9 +3,9 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  /* background: #252525; */
-  color-scheme: light dark;
-  /* color: white; */
+  background: #141414;
+  /* color-scheme: light dark; */
+  color: white;
 }
 
 :root {
