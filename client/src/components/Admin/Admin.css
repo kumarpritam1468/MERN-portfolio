@@ -16,6 +16,10 @@
     gap: .5rem;
 }
 
+.adminNav .btn1{
+    background: transparent;
+}
+
 .adminPage {
     min-height: 100vh;
     width: 100vw;
@@ -97,13 +101,17 @@
     flex: 1 1 25%;
 }
 
+.table-data{
+    background: transparent;
+    color: white;
+}
+
 .table-data h3 {
     font-weight: 400;
     overflow-wrap: break-word;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: wrap;
-    background: white;
 }
 
 .header__item {
