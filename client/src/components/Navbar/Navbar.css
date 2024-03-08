@@ -50,6 +50,7 @@
         height: fit-content;
         padding-bottom: 3rem;
         transition: all .3s ease-in-out;
+        z-index: 10;
     }
 
     .pagesActive{
@@ -58,6 +59,7 @@
 
     .pages a{
         width: fit-content;
+        background: transparent;
     }
 
     .icon{
