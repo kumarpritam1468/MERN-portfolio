@@ -112,6 +112,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: wrap;
+    background: transparent;
+    color: black;
 }
 
 .header__item {
