@@ -103,6 +103,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: wrap;
+    background: white;
 }
 
 .header__item {
